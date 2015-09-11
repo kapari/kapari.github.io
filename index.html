@@ -3,7 +3,7 @@
 <head>
     <title>Ariel Kaplan</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel='stylesheet' href='bootstrap/css/bootstrap-theme.min.css'>
+    <!--<link rel='stylesheet' href='bootstrap/css/bootstrap-theme.min.css'>-->
     <!--<link rel='stylesheet' href='stylesheets/normalize.css'>-->
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
@@ -46,8 +46,32 @@
 
                             <p>Skills: JavaScript, Python, Django, HTML, CSS, MVC, AWS Deployment</p>
 
-                            <p><a href="http://dancematch.arielkaplan.com">dancematch.arielkaplan.com</a></p></div>
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#dmModel">Project Details</a>
+                            <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
+
+                        </div>
                     </div>
+
+                    <!-- DanceMatch Modal -->
+                    <div class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="modal-title" id="paLabel">DanceMatch</h3>
+                                </div>
+                                <div class="modal-body">
+                                    Content goes here.
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal -->
+
                 </article>
             </div>
             <div class="col-sm-4">
@@ -63,33 +87,31 @@
 
                             <p>Skills: HTML, CSS, Wireframes, Responsive Design, Project Planning, Communication</p>
 
-                            <p><a href="http://patternagents.github.io">patternagents.github.io</a></p>
-
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#paModel">
-                                Project Details
-                            </button>
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#paModel">Project Details</a>
+                            <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
 
                         </div>
                     </div>
 
                     <!-- Pattern Agents Modal -->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                    <h3 class="modal-title" id="paLabel">PatternAgents</h3>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    Content goes here.
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- End Modal -->
 
                 </article>
             </div>
@@ -105,8 +127,30 @@
                             <p>Skills: Foundation, HTML, CSS, Wireframes, Project Planning, Photoshop, Communication,
                                 Customer Service</p>
 
-                            <p><a href="http://www.carrutherslandscape.com">www.carrutherslandscape.com</a></p></div>
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#clModel">Project Details</a>
+                            <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
                     </div>
+
+                    <!-- Carruthers Landscape Modal -->
+                    <div class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
+                                </div>
+                                <div class="modal-body">
+                                    Content goes here.
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal -->
+
                 </article>
             </div>
         </div>

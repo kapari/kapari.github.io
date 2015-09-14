@@ -36,3 +36,31 @@ article {
 .thumbnail img {
     width: 100%;
 }
+
+code {
+    color: #5C63BB;
+    overflow: scroll;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 650px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-dialog {
+        width: 800px;
+        margin: 30px auto;
+    }
+    .modal-body, .modal-header, .modal-footer {
+        padding: 15px 30px;
+    }
+    .modal-header {
+        padding-top: 30px;
+    }
+    .modal-footer {
+        padding-bottom: 30px;
+    }
+}

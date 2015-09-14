@@ -58,14 +58,15 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h3 class="modal-title" id="paLabel">DanceMatch</h3>
+                                    <h2 class="modal-title" id="paLabel">DanceMatch</h2>
                                 </div>
-                                < class="modal-body">
-                                    <h4>Background</h4>
+                                <div class="modal-body">
+                                    <h3>Background</h3>
                                     <p>
                                         The current version of DanceMatch is the MVP for a dance partner matching application.
                                         Built with Python and Django on the back end, and Vanilla JavaScript, HTML5, and CSS3
-                                        (such as it is) on the front end.
+                                        (such as it is) on the front end. I was definitely focused on learning Django and Javascript
+                                        in this project.
                                     </p>
                                     <p>
                                         I got the idea for this project from when I took an online HCI class from Stanford.
@@ -76,7 +77,7 @@
                                         between lessons. The hard part was finding someone to practice with, especially in
                                         their area, as many dancers drive a fair distance to dance in Portland.
                                     </p>
-                                    <h4>Status</h4>
+                                    <h3>Status</h3>
                                     <p>
                                         The current version of the app gives you a way to specify which dances you do and
                                         what you're working on for each, so that others may find you based on shared goals.
@@ -104,30 +105,81 @@
                                         going somewhere and not knowing anyone, and some dancers want someone (like a gym buddy) to
                                         keep them from backing out at the last minute.
                                     </p>
-                                    <h4>Snippets</h4>
-                                    <h5>Dynamically Drawing Dropdowns</h5>
-                                    <code>
-                                        function drawDropdown(select, data, selected) {
-                                            for (var i = 0; i < data.length; i++) {
-                                                var option = document.createElement('option');
-                                                option.innerHTML = data[i]["name"];
-                                                option.setAttribute("value", data[i]["id"]);
-                                                if (data[i]["name"] == selected) {
-                                                    option.setAttribute("selected", "selected");
-                                                    }
-                                                select.appendChild(option);
-                                            }
-                                        }
-                                    </code>
+                                    <h3>Snippets</h3>
+                                    <h4>Dynamically Drawing Dropdowns</h4>
                                     <p>
-                                        I had a lot of many-to-many models to fill in my Dance Preferences: Dances, Dance Role,
-                                        Skill Level, Goal, and Activity (if you're working on this dance right now or not). To fill in
-                                        the selects, I saved the model data in a namespace and passed each model separately
-                                        into the <code>drawDropdown</code> function. 
+                                        I had a lot of many-to-many models to fill in my Dance Preferences: Dance, Dance Role,
+                                        Skill Level, Goal, and Activity (if you're working on this dance right now or not). In this
+                                        example, I'm drawing the selects in a form for the user to edit a particular Dance
+                                        Preference. To fill in each option, I saved the model data in a <code>DM</code> namespace
+                                        and passed each one separately into the <code>drawDropdown</code> function. To further
+                                        abstract things, I also saved a list of the models I wanted to call in <code>
+                                        DM.model_list</code>, so I loop through each of those in <code>drawPrefEdit</code>.
                                     </p>
-
-
-
+<pre>
+<code>
+function drawDropdown(select, data, selected) {
+    for (var i = 0; i < data.length; i++) {
+        var option = document.createElement('option');
+        option.innerHTML = data[i]["name"];
+        option.setAttribute("value", data[i]["id"]);
+        if (data[i]["name"] == selected) {
+            option.setAttribute("selected", "selected");
+            }
+    select.appendChild(option);
+    }
+}
+</code>
+<code>
+function drawPrefEdit(parent, current_pref) {
+    var models = DM.model_list;
+    var model_lists = DM.model_list_list;
+    for (var i = 0; i < models.length; i++) {
+        var current_select = parent.getElementsByClassName(model_lists[i])[0];
+        var model_data = DM[model_lists[i]];
+        drawDropdown(current_select, model_data, current_pref[models[i]]);
+        }
+    parent.getElementsByClassName("notes_textarea")[0].innerHTML = current_pref.notes;
+}
+</code>
+</pre>
+                                    <p>
+                                        For each item, I create an option and fill it with the <code>name</code> of the item,
+                                        and then set the <code>value</code> to be the item's <code>id</code>, for later retrieval. I've passed in the current value to the <code>drawDropdown</code>
+                                        so it shows up already selected. I then add the item to the parent <code>select</code> that
+                                        has been passed in.
+                                    </p>
+                                    <h4>Sorting and Filtering</h4>
+                                    <p>
+                                        I wanted to use the built-in <code>.filter()</code> function in JavaScript, but it
+                                        didn't allow any parameters to be passed in. I found the basic idea for this solution
+                                        online and was unreasonably excited about it: call a function <strong>with</strong> parameters
+                                        that returns a function <strong>without</strong> parameters for the <code>
+                                        .filter()</code> to deal with.
+                                    </p>
+<pre>
+<code>
+function sortResults(criteria) {
+    if (criteria == "skill_level") {
+        criteria += "_id";
+    }
+    return function(a, b) {
+        if (a[criteria] > b[criteria]) {
+            return 1;
+        } else if (a[criteria] < b[criteria]) {
+            return -1;
+        } else {
+            return 0;
+        }
+    };
+}
+</code>
+</pre>
+                                    <p>
+                                        The two things I was sorting by were the person's Name and their Skill Level. Name
+                                        sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
+                                        id</code>.
+                                    </p>
                                 </div>
                                 <div class="modal-footer">
                                     <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>

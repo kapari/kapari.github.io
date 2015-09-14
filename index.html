@@ -60,8 +60,74 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <h3 class="modal-title" id="paLabel">DanceMatch</h3>
                                 </div>
-                                <div class="modal-body">
-                                    Content goes here.
+                                < class="modal-body">
+                                    <h4>Background</h4>
+                                    <p>
+                                        The current version of DanceMatch is the MVP for a dance partner matching application.
+                                        Built with Python and Django on the back end, and Vanilla JavaScript, HTML5, and CSS3
+                                        (such as it is) on the front end.
+                                    </p>
+                                    <p>
+                                        I got the idea for this project from when I took an online HCI class from Stanford.
+                                        I did some need-finding interviews with people from the local dance community early in
+                                        the class, and found that many dancers wanted to practice during the week but had
+                                        no one to practice with. They would take weekly classes or private lessons, and
+                                        felt like they weren't progressing as well as they would with additional reinforcement
+                                        between lessons. The hard part was finding someone to practice with, especially in
+                                        their area, as many dancers drive a fair distance to dance in Portland.
+                                    </p>
+                                    <h4>Status</h4>
+                                    <p>
+                                        The current version of the app gives you a way to specify which dances you do and
+                                        what you're working on for each, so that others may find you based on shared goals.
+                                        It also lets you choose locations you are willing to travel to, so that you'll know
+                                        right away if meeting with someone would be feasible for both of you. You're able
+                                        to search for others based on dance and role, with an optional goal if you're specifically
+                                        looking for a competition or routine partner.
+                                    </p>
+                                    <p>
+                                        The next steps for this project would be cleaning up the current funtionality: be able to view others'
+                                        profiles, and automatically filter search results based on overlapping preferred
+                                        locations. I'd also like to filter out the "Inactive" results, so people can leave
+                                        their information up but not have it show up in searches if they're not working on
+                                        it at the moment.
+                                    </p>
+                                    <p>
+                                        Most of the app is a SPA, but I'd like to get the Image Upload and New Dance forms
+                                        combined as well; they are currently separate pages, so all of the data has to load again
+                                        once you submit. I'd also like to let people log out.
+                                    </p>
+                                    <p>
+                                        In the future, I'd like to implement additional functionality: a simple messaging
+                                        system to mask email addresses, and helping people find buddies to attend dances through
+                                        a Preferred Venue model. I've heard from a number of people that it can be daunting
+                                        going somewhere and not knowing anyone, and some dancers want someone (like a gym buddy) to
+                                        keep them from backing out at the last minute.
+                                    </p>
+                                    <h4>Snippets</h4>
+                                    <h5>Dynamically Drawing Dropdowns</h5>
+                                    <code>
+                                        function drawDropdown(select, data, selected) {
+                                            for (var i = 0; i < data.length; i++) {
+                                                var option = document.createElement('option');
+                                                option.innerHTML = data[i]["name"];
+                                                option.setAttribute("value", data[i]["id"]);
+                                                if (data[i]["name"] == selected) {
+                                                    option.setAttribute("selected", "selected");
+                                                    }
+                                                select.appendChild(option);
+                                            }
+                                        }
+                                    </code>
+                                    <p>
+                                        I had a lot of many-to-many models to fill in my Dance Preferences: Dances, Dance Role,
+                                        Skill Level, Goal, and Activity (if you're working on this dance right now or not). To fill in
+                                        the selects, I saved the model data in a namespace and passed each model separately
+                                        into the <code>drawDropdown</code> function. 
+                                    </p>
+
+
+
                                 </div>
                                 <div class="modal-footer">
                                     <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
@@ -205,7 +271,7 @@
     <section id="other" class="row"><h2>Other Interests</h2>
 
         <div class="col-sm-6 col-md-6">
-            <article class="project">
+            <article class="interest">
                 <div class="thumbnail">
                     <a href="http://dance.arielkaplan.com"><img src="images/dance-bw.jpg" alt="Dancing"></a>
 
@@ -226,7 +292,7 @@
             </article>
         </div>
         <div class="col-sm-6 col-md-6">
-            <article class="project">
+            <article class="interest">
                 <div class="thumbnail"><a href="http://www.arielkaplan.com"><img src="images/art-gabby.jpg"
                                                                                   alt="Painting"></a>
 

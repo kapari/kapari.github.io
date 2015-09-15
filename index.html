@@ -51,228 +51,6 @@
 
                         </div>
                     </div>
-
-                    <!-- DanceMatch Modal -->
-                    <div class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h2 class="modal-title" id="paLabel">DanceMatch</h2>
-                                </div>
-                                <div class="modal-body">
-                                    <h3>Background</h3>
-                                    <p>
-                                        The current version of DanceMatch is the MVP for a dance partner matching application.
-                                        Built with Python and Django on the back end, and Vanilla JavaScript, HTML5, and CSS3
-                                        (such as it is) on the front end. I was definitely focused on learning Django and Javascript
-                                        in this project.
-                                    </p>
-                                    <p>
-                                        I got the idea for this project from when I took an online HCI class from Stanford.
-                                        I did some need-finding interviews with people from the local dance community early in
-                                        the class, and found that many dancers wanted to practice during the week but had
-                                        no one to practice with. They would take weekly classes or private lessons, and
-                                        felt like they weren't progressing as well as they would with additional reinforcement
-                                        between lessons. The hard part was finding someone to practice with, especially in
-                                        their area, as many dancers drive a fair distance to dance in Portland.
-                                    </p>
-                                    <h3>Status</h3>
-                                    <p>
-                                        The current version of the app gives you a way to specify which dances you do and
-                                        what you're working on for each, so that others may find you based on shared goals.
-                                        It also lets you choose locations you are willing to travel to, so that you'll know
-                                        right away if meeting with someone would be feasible for both of you. You're able
-                                        to search for others based on dance and role, with an optional goal if you're specifically
-                                        looking for a competition or routine partner.
-                                    </p>
-                                    <p>
-                                        The next steps for this project would be cleaning up the current funtionality: be able to view others'
-                                        profiles, and automatically filter search results based on overlapping preferred
-                                        locations. I'd also like to filter out the "Inactive" results, so people can leave
-                                        their information up but not have it show up in searches if they're not working on
-                                        it at the moment.
-                                    </p>
-                                    <p>
-                                        Most of the app is a SPA, but I'd like to get the Image Upload and New Dance forms
-                                        combined as well; they are currently separate pages, so all of the data has to load again
-                                        once you submit. I'd also like to let people log out.
-                                    </p>
-                                    <p>
-                                        In the future, I'd like to implement additional functionality: a simple messaging
-                                        system to mask email addresses, and helping people find buddies to attend dances through
-                                        a Preferred Venue model. I've heard from a number of people that it can be daunting
-                                        going somewhere and not knowing anyone, and some dancers want someone (like a gym buddy) to
-                                        keep them from backing out at the last minute.
-                                    </p>
-                                    <h3>Snippets</h3>
-                                    <h4>Dynamically Drawing Dropdowns</h4>
-                                    <p>
-                                        I had a lot of many-to-many models to fill in my Dance Preferences: Dance, Dance Role,
-                                        Skill Level, Goal, and Activity (if you're working on this dance right now or not). In this
-                                        example, I'm drawing the selects in a form for the user to edit a particular Dance
-                                        Preference. To fill in each option, I saved the model data in a <code>DM</code> namespace
-                                        and passed each one separately into the <code>drawDropdown</code> function. To further
-                                        abstract things, I also saved a list of the models I wanted to call in <code>
-                                        DM.model_list</code>, so I loop through each of those in <code>drawPrefEdit</code>.
-                                    </p>
-<pre>
-<code>
-function drawDropdown(select, data, selected) {
-    for (var i = 0; i < data.length; i++) {
-        var option = document.createElement('option');
-        option.innerHTML = data[i]["name"];
-        option.setAttribute("value", data[i]["id"]);
-        if (data[i]["name"] == selected) {
-            option.setAttribute("selected", "selected");
-            }
-    select.appendChild(option);
-    }
-}
-</code>
-<code>
-function drawPrefEdit(parent, current_pref) {
-    var models = DM.model_list;
-    var model_lists = DM.model_list_list;
-    for (var i = 0; i < models.length; i++) {
-        var current_select = parent.getElementsByClassName(model_lists[i])[0];
-        var model_data = DM[model_lists[i]];
-        drawDropdown(current_select, model_data, current_pref[models[i]]);
-        }
-    parent.getElementsByClassName("notes_textarea")[0].innerHTML = current_pref.notes;
-}
-</code>
-</pre>
-                                    <p>
-                                        For each item, I create an option and fill it with the <code>name</code> of the item,
-                                        and then set the <code>value</code> to be the item's <code>id</code>, for later retrieval. I've passed in the current value to the <code>drawDropdown</code>
-                                        so it shows up already selected. I then add the item to the parent <code>select</code> that
-                                        has been passed in.
-                                    </p>
-                                    <h4>Sorting and Filtering</h4>
-                                    <p>
-                                        I wanted to use the built-in <code>.sort()</code> function in JavaScript, but it
-                                        didn't allow any parameters to be passed in. I found the idea
-                                        online and was unreasonably excited about it: call a function <strong>with</strong> parameters
-                                        that returns a function <strong>without</strong> parameters for the <code>
-                                        .sort()</code> to deal with.
-                                    </p>
-<pre>
-<code>
-function sortResults(criteria) {
-    return function(a, b) {
-        if (a[criteria] > b[criteria]) {
-            return 1;
-        } else if (a[criteria] < b[criteria]) {
-            return -1;
-        } else {
-            return 0;
-        }
-    };
-}
-</code>
-<code>
-function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
-    if (sort_criteria == "skill_level")  {
-        sort_criteria = "skill_level_id"
-    } else {
-        sort_criteria = "first_name"
-    }
-    var sorted_data = {};
-    if (is_ascending) {
-        sorted_data = filtered_data.sort(sortResults(sort_criteria));
-    } else {
-        sorted_data = filtered_data.sort(sortDescending(sort_criteria));
-    }
-    drawResultList(sorted_data);
-}
-
-</code>
-</pre>
-                                    <p>
-                                        The two things I was sorting by were the person's Name and their Skill Level. Name
-                                        sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
-                                        id</code>. <code>is_ascending</code> is based on a CSS class that is added and removed
-                                        when the column header is clicked.
-                                    </p>
-                                    <p>
-                                        When all the data has been sorted and filtered, the results table is redrawn.
-                                    </p>
-                                    <h4>AJAX Create &amp; Delete</h4>
-                                    <p>
-                                        The function <code>onSuburbUpdate</code> is called whenever a Suburb checkbox is
-                                        checked or unchecked, and it sends a JSON update to the view <code>update_suburb</code>.
-                                        This allows the user to quickly add or remove a Suburb from
-                                        their list without having to reload the page.
-                                    </p>
-<pre>
-<code>
-@csrf_exempt
-def update_suburb(request):
-    if request.POST:
-        user_id = int(request.POST.get("user_id"))
-        user = get_object_or_404(User, id=user_id)
-        dancer = user.dancer
-        suburb_id = int(request.POST.get("sub_id"))
-        suburb = Suburb.objects.filter(id=suburb_id)[0]
-        filtered_pref_list = PreferredSuburb.objects.filter(dancer=dancer)
-        chosen_pref = None
-
-        for pref in filtered_pref_list:
-            if pref.suburb.id == suburb_id:
-                chosen_pref = pref
-                break
-
-        if request.POST["action"] == "DELETE":
-            chosen_pref.delete()
-        else:
-            chosen_pref = PreferredSuburb()
-            chosen_pref.dancer = dancer
-            chosen_pref.suburb = suburb
-            chosen_pref.save()
-        return HttpResponseRedirect("/main/")
-</code>
-<code>
-function onSuburbUpdate(e) {
-    var suburb_id = e.target.name;
-    var suburb_li = e.target.parentElement;
-    var action = "NONE";
-
-    suburb_li.classList.toggle("checked");
-    if (suburb_li.classList.contains("checked")) {
-        action = "SAVE";
-    } else {
-        action = "DELETE";
-    }
-    var update = {"user_id": DM.user_id,
-                  "sub_id": suburb_id,
-                  "action": action};
-    sendPost(update, "/update_suburb/");
-}
-</code>
-</pre>
-                                    <p>
-                                        <code>onSuburbUpdate</code> toggles the class "checked" in the CSS class list, in
-                                        response to the user input. Then it builds a JSON update to send to <code>update_suburb</code>.
-                                        If the Suburb is checked, the <code>action</code> will be "SAVE" and it will create a
-                                        new instance of the PreferredSuburb many-to-many model. If unchecked, the <code>action</code>
-                                        will be "DELETE" and will remove the existing instance.
-                                    </p>
-                                    <p>
-                                        <code>update_suburb</code> gets the User from the <code>user_id</code>, the Dancer from the User (a one-to-one
-                                        relationship), and the Suburb from the <code>sub_id</code>, using <code>.filter()</code>
-                                        so as to not throw a 404 error if the PreferredSuburb isn't there.
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Modal -->
-
                 </article>
             </div>
             <div class="col-sm-4">
@@ -355,6 +133,229 @@ function onSuburbUpdate(e) {
                 </article>
             </div>
         </div>
+    </section>
+    <section id="modals">
+
+        <!-- DanceMatch Modal -->
+        <div class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h2 class="modal-title" id="paLabel">DanceMatch</h2>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Background</h3>
+                        <p>
+                            The current version of DanceMatch is the MVP for a dance partner matching application.
+                            Built with Python and Django on the back end, and Vanilla JavaScript, HTML5, and CSS3
+                            (such as it is) on the front end. I was definitely focused on learning Django and Javascript
+                            in this project.
+                        </p>
+                        <p>
+                            I got the idea for this project from when I took an online HCI class from Stanford.
+                            I did some need-finding interviews with people from the local dance community early in
+                            the class, and found that many dancers wanted to practice during the week but had
+                            no one to practice with. They would take weekly classes or private lessons, and
+                            felt like they weren't progressing as well as they would with additional reinforcement
+                            between lessons. The hard part was finding someone to practice with, especially in
+                            their area, as many dancers drive a fair distance to dance in Portland.
+                        </p>
+                        <h3>Status</h3>
+                        <p>
+                            The current version of the app gives you a way to specify which dances you do and
+                            what you're working on for each, so that others may find you based on shared goals.
+                            It also lets you choose locations you are willing to travel to, so that you'll know
+                            right away if meeting with someone would be feasible for both of you. You're able
+                            to search for others based on dance and role, with an optional goal if you're specifically
+                            looking for a competition or routine partner.
+                        </p>
+                        <p>
+                            The next steps for this project would be cleaning up the current funtionality: be able to view others'
+                            profiles, and automatically filter search results based on overlapping preferred
+                            locations. I'd also like to filter out the "Inactive" results, so people can leave
+                            their information up but not have it show up in searches if they're not working on
+                            it at the moment.
+                        </p>
+                        <p>
+                            Most of the app is a SPA, but I'd like to get the Image Upload and New Dance forms
+                            combined as well; they are currently separate pages, so all of the data has to load again
+                            once you submit. I'd also like to let people log out.
+                        </p>
+                        <p>
+                            In the future, I'd like to implement additional functionality: a simple messaging
+                            system to mask email addresses, and helping people find buddies to attend dances through
+                            a Preferred Venue model. I've heard from a number of people that it can be daunting
+                            going somewhere and not knowing anyone, and some dancers want someone (like a gym buddy) to
+                            keep them from backing out at the last minute.
+                        </p>
+                        <h3>Snippets</h3>
+                        <h4>Dynamically Drawing Dropdowns</h4>
+                        <p>
+                            I had a lot of many-to-many models to fill in my Dance Preferences: Dance, Dance Role,
+                            Skill Level, Goal, and Activity (if you're working on this dance right now or not). In this
+                            example, I'm drawing the selects in a form for the user to edit a particular Dance
+                            Preference. To fill in each option, I saved the model data in a <code>DM</code> namespace
+                            and passed each one separately into the <code>drawDropdown</code> function. To further
+                            abstract things, I also saved a list of the models I wanted to call in <code>
+                            DM.model_list</code>, so I loop through each of those in <code>drawPrefEdit</code>.
+                        </p>
+<pre>
+<code>
+function drawDropdown(select, data, selected) {
+    for (var i = 0; i < data.length; i++) {
+        var option = document.createElement('option');
+        option.innerHTML = data[i]["name"];
+        option.setAttribute("value", data[i]["id"]);
+        if (data[i]["name"] == selected) {
+            option.setAttribute("selected", "selected");
+        }
+        select.appendChild(option);
+    }
+}
+</code>
+<code>
+function drawPrefEdit(parent, current_pref) {
+    var models = DM.model_list;
+    var model_lists = DM.model_list_list;
+    for (var i = 0; i < models.length; i++) {
+        var current_select = parent.getElementsByClassName(model_lists[i])[0];
+        var model_data = DM[model_lists[i]];
+        drawDropdown(current_select, model_data, current_pref[models[i]]);
+    }
+    parent.getElementsByClassName("notes_textarea")[0].innerHTML = current_pref.notes;
+}
+</code>
+</pre>
+                        <p>
+                            For each item, I create an option and fill it with the <code>name</code> of the item,
+                            and then set the <code>value</code> to be the item's <code>id</code>, for later retrieval. I've passed in the current value to the <code>drawDropdown</code>
+                            so it shows up already selected. I then add the item to the parent <code>select</code> that
+                            has been passed in.
+                        </p>
+                        <h4>Sorting and Filtering</h4>
+                        <p>
+                            I wanted to use the built-in <code>.sort()</code> function in JavaScript, but it
+                            didn't allow any parameters to be passed in. I found the idea
+                            online and was unreasonably excited about it: call a function <strong>with</strong> parameters
+                            that returns a function <strong>without</strong> parameters for the <code>
+                            .sort()</code> to deal with.
+                        </p>
+<pre>
+<code>
+function sortResults(criteria) {
+    return function(a, b) {
+        if (a[criteria] > b[criteria]) {
+            return 1;
+        } else if (a[criteria] < b[criteria]) {
+            return -1;
+        } else {
+            return 0;
+        }
+    };
+}
+</code>
+<code>
+function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
+    if (sort_criteria == "skill_level")  {
+        sort_criteria = "skill_level_id"
+    } else {
+        sort_criteria = "first_name"
+    }
+    var sorted_data = {};
+    if (is_ascending) {
+        sorted_data = filtered_data.sort(sortResults(sort_criteria));
+    } else {
+        sorted_data = filtered_data.sort(sortDescending(sort_criteria));
+    }
+    drawResultList(sorted_data);
+}
+</code>
+</pre>
+                        <p>
+                            The two things I was sorting by were the person's Name and their Skill Level. Name
+                            sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
+                            id</code>. <code>is_ascending</code> is based on a CSS class that is added and removed
+                            when the column header is clicked.
+                        </p>
+                        <p>
+                            When all the data has been sorted and filtered, the results table is redrawn.
+                        </p>
+                        <h4>AJAX Create &amp; Delete</h4>
+                        <p>
+                            The function <code>onSuburbUpdate</code> is called whenever a Suburb checkbox is
+                            checked or unchecked, and it sends a JSON update to the view <code>update_suburb</code>.
+                            This allows the user to quickly add or remove a Suburb from
+                            their list without having to reload the page.
+                        </p>
+<pre>
+<code>
+@csrf_exempt
+def update_suburb(request):
+    if request.POST:
+        user_id = int(request.POST.get("user_id"))
+        user = get_object_or_404(User, id=user_id)
+        dancer = user.dancer
+        suburb_id = int(request.POST.get("sub_id"))
+        suburb = Suburb.objects.filter(id=suburb_id)[0]
+        filtered_pref_list = PreferredSuburb.objects.filter(dancer=dancer)
+        chosen_pref = None
+
+        for pref in filtered_pref_list:
+            if pref.suburb.id == suburb_id:
+                chosen_pref = pref
+                break
+
+        if request.POST["action"] == "DELETE":
+            chosen_pref.delete()
+        else:
+            chosen_pref = PreferredSuburb()
+            chosen_pref.dancer = dancer
+            chosen_pref.suburb = suburb
+            chosen_pref.save()
+        return HttpResponseRedirect("/main/")
+</code>
+<code>
+    function onSuburbUpdate(e) {
+    var suburb_id = e.target.name;
+    var suburb_li = e.target.parentElement;
+    var action = "NONE";
+
+    suburb_li.classList.toggle("checked");
+    if (suburb_li.classList.contains("checked")) {
+    action = "SAVE";
+    } else {
+    action = "DELETE";
+    }
+    var update = {"user_id": DM.user_id,
+    "sub_id": suburb_id,
+    "action": action};
+    sendPost(update, "/update_suburb/");
+    }
+</code>
+</pre>
+                        <p>
+                            <code>onSuburbUpdate</code> toggles the class "checked" in the CSS class list, in
+                            response to the user input. Then it builds a JSON update to send to <code>update_suburb</code>.
+                            If the Suburb is checked, the <code>action</code> will be "SAVE" and it will create a
+                            new instance of the PreferredSuburb many-to-many model. If unchecked, the <code>action</code>
+                            will be "DELETE" and will remove the existing instance.
+                        </p>
+                        <p>
+                            <code>update_suburb</code> gets the User from the <code>user_id</code>, the Dancer from the User (a one-to-one
+                            relationship), and the Suburb from the <code>sub_id</code>, using <code>.filter()</code>
+                            so as to not throw a 404 error if the PreferredSuburb isn't there.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
     </section>
     <section id="education" class="row"><h2>Education</h2>
         <ul>

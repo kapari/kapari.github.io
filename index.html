@@ -190,6 +190,14 @@
                             keep them from backing out at the last minute.
                         </p>
                         <h3>Snippets</h3>
+                        <h4>Waiting to Load</h4>
+                        <p>
+                            I wrapped the JavaScript in an <code>init</code> function so it would wait until the DOM had
+                            finished loading, but since most of the site is drawn based on what comes in from the database,
+                            I ended up with a race condition. <code>setTimeout</code> kept my selects
+                            from drawing before they had the data to fill in their options.
+                        </p>
+                        <script src="https://gist.github.com/kapari/ebc8ba7caffae6b9caa8.js"></script>
                         <h4>Dynamically Drawing Dropdowns</h4>
                         <p>
                             I had a lot of many-to-many models to fill in my Dance Preferences: Dance, Dance Role,
@@ -200,33 +208,7 @@
                             abstract things, I also saved a list of the models I wanted to call in <code>
                             DM.model_list</code>, so I loop through each of those in <code>drawPrefEdit</code>.
                         </p>
-<pre>
-<code>
-function drawDropdown(select, data, selected) {
-    for (var i = 0; i < data.length; i++) {
-        var option = document.createElement('option');
-        option.innerHTML = data[i]["name"];
-        option.setAttribute("value", data[i]["id"]);
-        if (data[i]["name"] == selected) {
-            option.setAttribute("selected", "selected");
-        }
-        select.appendChild(option);
-    }
-}
-</code>
-<code>
-function drawPrefEdit(parent, current_pref) {
-    var models = DM.model_list;
-    var model_lists = DM.model_list_list;
-    for (var i = 0; i < models.length; i++) {
-        var current_select = parent.getElementsByClassName(model_lists[i])[0];
-        var model_data = DM[model_lists[i]];
-        drawDropdown(current_select, model_data, current_pref[models[i]]);
-    }
-    parent.getElementsByClassName("notes_textarea")[0].innerHTML = current_pref.notes;
-}
-</code>
-</pre>
+                        <script src="https://gist.github.com/kapari/10cbe336829ae4183f03.js"></script>
                         <p>
                             For each item, I create an option and fill it with the <code>name</code> of the item,
                             and then set the <code>value</code> to be the item's <code>id</code>, for later retrieval. I've passed in the current value to the <code>drawDropdown</code>
@@ -241,37 +223,7 @@ function drawPrefEdit(parent, current_pref) {
                             that returns a function <strong>without</strong> parameters for the <code>
                             .sort()</code> to deal with.
                         </p>
-<pre>
-<code>
-function sortResults(criteria) {
-    return function(a, b) {
-        if (a[criteria] > b[criteria]) {
-            return 1;
-        } else if (a[criteria] < b[criteria]) {
-            return -1;
-        } else {
-            return 0;
-        }
-    };
-}
-</code>
-<code>
-function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
-    if (sort_criteria == "skill_level")  {
-        sort_criteria = "skill_level_id"
-    } else {
-        sort_criteria = "first_name"
-    }
-    var sorted_data = {};
-    if (is_ascending) {
-        sorted_data = filtered_data.sort(sortResults(sort_criteria));
-    } else {
-        sorted_data = filtered_data.sort(sortDescending(sort_criteria));
-    }
-    drawResultList(sorted_data);
-}
-</code>
-</pre>
+                        <script src="https://gist.github.com/kapari/ff95a2134db05fa257ef.js"></script>
                         <p>
                             The two things I was sorting by were the person's Name and their Skill Level. Name
                             sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
@@ -288,52 +240,7 @@ function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
                             This allows the user to quickly add or remove a Suburb from
                             their list without having to reload the page.
                         </p>
-<pre>
-<code>
-@csrf_exempt
-def update_suburb(request):
-    if request.POST:
-        user_id = int(request.POST.get("user_id"))
-        user = get_object_or_404(User, id=user_id)
-        dancer = user.dancer
-        suburb_id = int(request.POST.get("sub_id"))
-        suburb = Suburb.objects.filter(id=suburb_id)[0]
-        filtered_pref_list = PreferredSuburb.objects.filter(dancer=dancer)
-        chosen_pref = None
-
-        for pref in filtered_pref_list:
-            if pref.suburb.id == suburb_id:
-                chosen_pref = pref
-                break
-
-        if request.POST["action"] == "DELETE":
-            chosen_pref.delete()
-        else:
-            chosen_pref = PreferredSuburb()
-            chosen_pref.dancer = dancer
-            chosen_pref.suburb = suburb
-            chosen_pref.save()
-        return HttpResponseRedirect("/main/")
-</code>
-<code>
-function onSuburbUpdate(e) {
-    var suburb_id = e.target.name;
-    var suburb_li = e.target.parentElement;
-    var action = "NONE";
-
-    suburb_li.classList.toggle("checked");
-    if (suburb_li.classList.contains("checked")) {
-        action = "SAVE";
-    } else {
-        action = "DELETE";
-    }
-    var update = {"user_id": DM.user_id,
-                  "sub_id": suburb_id,
-                  "action": action};
-    sendPost(update, "/update_suburb/");
-}
-</code>
-</pre>
+                        <script src="https://gist.github.com/kapari/1c8cff74b2c7faa4c2b3.js"></script>
                         <p>
                             <code>onSuburbUpdate</code> toggles the class "checked" in the CSS class list, in
                             response to the user input. Then it builds a JSON update to send to <code>update_suburb</code>.
@@ -361,7 +268,7 @@ function onSuburbUpdate(e) {
                 </div>
             </div>
         </div>
-        <!-- End Modal -->
+        <!-- End DM Modal -->
 
     </section>
     <section id="education" class="row"><h2>Education</h2>

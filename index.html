@@ -66,32 +66,11 @@
 
                             <p>Skills: HTML, CSS, Wireframes, Responsive Design, Project Planning, Communication</p>
 
-                            <a class="btn btn-primary" data-toggle="modal" data-target="#paModel">Project Details</a>
+                            <a class="hide btn btn-primary" data-toggle="modal" data-target="#paModel">Project Details</a>
                             <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
 
                         </div>
                     </div>
-
-                    <!-- Pattern Agents Modal -->
-                    <div class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h3 class="modal-title" id="paLabel">PatternAgents</h3>
-                                </div>
-                                <div class="modal-body">
-                                    Content goes here.
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Modal -->
-
                 </article>
             </div>
             <div class="col-sm-4">
@@ -106,30 +85,9 @@
                             <p>Skills: Foundation, HTML, CSS, Wireframes, Project Planning, Photoshop, Communication,
                                 Customer Service</p>
 
-                            <a class="btn btn-primary" data-toggle="modal" data-target="#clModel">Project Details</a>
+                            <a class="hide btn btn-primary" data-toggle="modal" data-target="#clModel">Project Details</a>
                             <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
                     </div>
-
-                    <!-- Carruthers Landscape Modal -->
-                    <div class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
-                                </div>
-                                <div class="modal-body">
-                                    Content goes here.
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Modal -->
-
                 </article>
             </div>
         </div>
@@ -137,7 +95,7 @@
     <section id="modals">
 
         <!-- DanceMatch Modal -->
-        <div class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+        <article class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -267,8 +225,48 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
         <!-- End DM Modal -->
+
+        <!-- Pattern Agents Modal -->
+        <article class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="paLabel">PatternAgents</h3>
+                    </div>
+                    <div class="modal-body">
+                        Content goes here.
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- End PA Modal -->
+
+        <!-- Carruthers Landscape Modal -->
+        <article class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
+                    </div>
+                    <div class="modal-body">
+                        Content goes here.
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- End CL Modal -->
 
     </section>
     <section id="education" class="row"><h2>Education</h2>

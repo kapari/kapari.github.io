@@ -151,18 +151,15 @@ function drawPrefEdit(parent, current_pref) {
                                     </p>
                                     <h4>Sorting and Filtering</h4>
                                     <p>
-                                        I wanted to use the built-in <code>.filter()</code> function in JavaScript, but it
-                                        didn't allow any parameters to be passed in. I found the basic idea for this solution
+                                        I wanted to use the built-in <code>.sort()</code> function in JavaScript, but it
+                                        didn't allow any parameters to be passed in. I found the idea
                                         online and was unreasonably excited about it: call a function <strong>with</strong> parameters
                                         that returns a function <strong>without</strong> parameters for the <code>
-                                        .filter()</code> to deal with.
+                                        .sort()</code> to deal with.
                                     </p>
 <pre>
 <code>
 function sortResults(criteria) {
-    if (criteria == "skill_level") {
-        criteria += "_id";
-    }
     return function(a, b) {
         if (a[criteria] > b[criteria]) {
             return 1;
@@ -174,11 +171,32 @@ function sortResults(criteria) {
     };
 }
 </code>
+<code>
+function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
+    if (sort_criteria == "skill_level")  {
+        sort_criteria = "skill_level_id"
+    } else {
+        sort_criteria = "first_name"
+    }
+    var sorted_data = {};
+    if (is_ascending) {
+        sorted_data = filtered_data.sort(sortResults(sort_criteria));
+    } else {
+        sorted_data = filtered_data.sort(sortDescending(sort_criteria));
+    }
+    drawResultList(sorted_data);
+}
+
+</code>
 </pre>
                                     <p>
                                         The two things I was sorting by were the person's Name and their Skill Level. Name
                                         sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
-                                        id</code>.
+                                        id</code>. <code>is_ascending</code> is based on a CSS class that is added and removed
+                                        when the column header is clicked.
+                                    </p>
+                                    <p>
+                                        When all the data has been sorted and filtered, the results table is redrawn.
                                     </p>
                                 </div>
                                 <div class="modal-footer">

@@ -198,6 +198,71 @@ function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
                                     <p>
                                         When all the data has been sorted and filtered, the results table is redrawn.
                                     </p>
+                                    <h4>AJAX Create &amp; Delete</h4>
+                                    <p>
+                                        The function <code>onSuburbUpdate</code> is called whenever a Suburb checkbox is
+                                        checked or unchecked, and it sends a JSON update to the view <code>update_suburb</code>.
+                                        This allows the user to quickly add or remove a Suburb from
+                                        their list without having to reload the page.
+                                    </p>
+<pre>
+<code>
+@csrf_exempt
+def update_suburb(request):
+    if request.POST:
+        user_id = int(request.POST.get("user_id"))
+        user = get_object_or_404(User, id=user_id)
+        dancer = user.dancer
+        suburb_id = int(request.POST.get("sub_id"))
+        suburb = Suburb.objects.filter(id=suburb_id)[0]
+        filtered_pref_list = PreferredSuburb.objects.filter(dancer=dancer)
+        chosen_pref = None
+
+        for pref in filtered_pref_list:
+            if pref.suburb.id == suburb_id:
+                chosen_pref = pref
+                break
+
+        if request.POST["action"] == "DELETE":
+            chosen_pref.delete()
+        else:
+            chosen_pref = PreferredSuburb()
+            chosen_pref.dancer = dancer
+            chosen_pref.suburb = suburb
+            chosen_pref.save()
+        return HttpResponseRedirect("/main/")
+</code>
+<code>
+function onSuburbUpdate(e) {
+    var suburb_id = e.target.name;
+    var suburb_li = e.target.parentElement;
+    var action = "NONE";
+
+    suburb_li.classList.toggle("checked");
+    if (suburb_li.classList.contains("checked")) {
+        action = "SAVE";
+    } else {
+        action = "DELETE";
+    }
+    var update = {"user_id": DM.user_id,
+                  "sub_id": suburb_id,
+                  "action": action};
+    sendPost(update, "/update_suburb/");
+}
+</code>
+</pre>
+                                    <p>
+                                        <code>onSuburbUpdate</code> toggles the class "checked" in the CSS class list, in
+                                        response to the user input. Then it builds a JSON update to send to <code>update_suburb</code>.
+                                        If the Suburb is checked, the <code>action</code> will be "SAVE" and it will create a
+                                        new instance of the PreferredSuburb many-to-many model. If unchecked, the <code>action</code>
+                                        will be "DELETE" and will remove the existing instance.
+                                    </p>
+                                    <p>
+                                        <code>update_suburb</code> gets the User from the <code>user_id</code>, the Dancer from the User (a one-to-one
+                                        relationship), and the Suburb from the <code>sub_id</code>, using <code>.filter()</code>
+                                        so as to not throw a 404 error if the PreferredSuburb isn't there.
+                                    </p>
                                 </div>
                                 <div class="modal-footer">
                                     <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>

@@ -283,7 +283,7 @@ function sortFilteredList(filtered_data, sort_criteria, is_ascending) {
                         </p>
                         <h4>AJAX Create &amp; Delete</h4>
                         <p>
-                            The function <code>onSuburbUpdate</code> is called whenever a Suburb checkbox is
+                            An event listener calls <code>onSuburbUpdate</code> whenever a Suburb checkbox is
                             checked or unchecked, and it sends a JSON update to the view <code>update_suburb</code>.
                             This allows the user to quickly add or remove a Suburb from
                             their list without having to reload the page.
@@ -349,7 +349,7 @@ def update_suburb(request):
                         <h4>Deployment</h4>
                         <p>
                             The app is currently deployed on a AWS Ubuntu server running Apache. I learned more about SSH
-                            keys and Linux commands, like how to change permissions, check the error.log file in VI in the
+                            keys and Linux commands, like how to change permissions, check the <code>error.log</code> file in VI in the
                             terminal, and create aliasing for commands in <code>.bash_profile</code>. There was a fair amount of
                             troubleshooting to set the paths in the <code>.conf</code> file to <code>wsgi.py</code>.
                         </p>

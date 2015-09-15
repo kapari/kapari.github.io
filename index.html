@@ -316,22 +316,22 @@ def update_suburb(request):
         return HttpResponseRedirect("/main/")
 </code>
 <code>
-    function onSuburbUpdate(e) {
+function onSuburbUpdate(e) {
     var suburb_id = e.target.name;
     var suburb_li = e.target.parentElement;
     var action = "NONE";
 
     suburb_li.classList.toggle("checked");
     if (suburb_li.classList.contains("checked")) {
-    action = "SAVE";
+        action = "SAVE";
     } else {
-    action = "DELETE";
+        action = "DELETE";
     }
     var update = {"user_id": DM.user_id,
-    "sub_id": suburb_id,
-    "action": action};
+                  "sub_id": suburb_id,
+                  "action": action};
     sendPost(update, "/update_suburb/");
-    }
+}
 </code>
 </pre>
                         <p>

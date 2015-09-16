@@ -9,362 +9,378 @@
 </head>
 <body>
 <div class="container">
-    <header class="row">
-        <div class="col-lg-12">
-            <h1>
-                Ariel Kaplan
-            </h1>
+    <div class="row">
+        <!-- Left column -->
+        <section class="col-md-3 col-sm-12 test1">
+            <header class="row">
+                <div class="col-lg-12">
+                    <h1>
+                        Ariel Kaplan
+                    </h1>
 
-            <p><a href="mailto:ariel@arielkaplan.com">ariel@arielkaplan.com</a></p>
+                    <p><a href="mailto:ariel@arielkaplan.com">ariel@arielkaplan.com</a></p>
 
-            <p><a href="http://www.github.com/kapari">www.github.com/kapari</a></p>
+                    <p><a href="http://www.github.com/kapari">www.github.com/kapari</a></p>
 
-            <p>I am: Focused, observant, optimistic, empathetic developer with a drive to learn and improve.</p>
+                    <p>I am: Focused, observant, optimistic, empathetic developer with a drive to learn and improve.</p>
 
-            <p>I value: Respect, Honesty, Compassion, Curiosity, Responsibility, Self-Awareness</p>
+                    <p>I value: Respect, Honesty, Compassion, Curiosity, Responsibility, Self-Awareness</p>
 
-            <p>I'm working on: Node.js & Express, Bootstrap</p>
+                    <p>I'm working on: Node.js & Express, Bootstrap</p>
 
-            <p>I'm curious about: AngularJS, CSS3 Animations, JQuery, Automated Testing, MeteorJS, MongoDB</p></div>
-    </header>
-    <section id="projects">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Projects</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <article class="project">
-                    <div class="thumbnail"><a href="http://www.dancematch.arielkaplan.com"><img src="images/proj-dance.jpg"
-                                                                                                alt="DanceMatch"></a>
+                    <p>I'm curious about: AngularJS, CSS3 Animations, JQuery, Automated Testing, MeteorJS, MongoDB</p>
+                </div>
+            </header>
 
-                        <div class="caption">
-                            <h3>DanceMatch</h3>
+            <footer class="row">
+                <div class="col-md-12">
+                    <p>Still here? <a href="mailto:ariel@arielkaplan.com">Email me!</a></p>
+                </div>
+            </footer>
+        </section>
+        <!-- End left column -->
 
-                            <p>An AJAX app built with Django to connect dancers with practice partners.</p>
+        <!-- Right column -->
+        <section class="col-md-9 col-sm-12 test2">
+            <section id="projects">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Projects</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <article class="project">
+                            <div class="thumbnail"><a href="http://www.dancematch.arielkaplan.com"><img src="images/proj-dance.jpg"
+                                                                                                        alt="DanceMatch"></a>
 
-                            <p>Skills: JavaScript, Python, Django, HTML, CSS, MVC, AWS Deployment</p>
+                                <div class="caption">
+                                    <h2>DanceMatch</h2>
 
-                            <a class="btn btn-primary" data-toggle="modal" data-target="#dmModel">Project Details</a>
-                            <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
+                                    <p>An AJAX app built with Django to connect dancers with practice partners.</p>
 
+                                    <p>Skills: JavaScript, Python, Django, HTML, CSS, MVC, AWS Deployment</p>
+
+                                    <a class="btn btn-primary" data-toggle="modal" data-target="#dmModel">Project Details</a>
+                                    <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-lg-4">
+                        <article class="project">
+                            <div class="thumbnail"><a href="http://patternagents.github.io"><img src="images/proj-pa.jpg"
+                                                                                                 alt="PatternAgents"></a>
+
+                                <div class="caption">
+                                    <h2>PatternAgents</h2>
+
+                                    <p>Worked with a small team to build the front end of this Jekyll-based blog, news, and
+                                        e-commerce site.</p>
+
+                                    <p>Skills: HTML, CSS, Wireframes, Responsive Design, Project Planning, Communication</p>
+
+                                    <a class="hide btn btn-primary" data-toggle="modal" data-target="#paModel">Project Details</a>
+                                    <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-lg-4">
+                        <article class="project">
+                            <div class="thumbnail"><a href="http://www.carrutherslandscape.com"><img src="images/proj-cland.jpg"
+                                                                                                     alt="Carruthers Landscape"></a>
+
+                                <div class="caption">
+                                    <h2>Carruthers Landscape</h2>
+
+                                    <p>A one-page responsive site for a small business. Built with Zurb Foundation 4.</p>
+
+                                    <p>Skills: Foundation, HTML, CSS, Wireframes, Project Planning, Photoshop, Communication,
+                                        Customer Service</p>
+
+                                    <a class="hide btn btn-primary" data-toggle="modal" data-target="#clModel">Project Details</a>
+                                    <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
+                                </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section id="modals">
+
+                <!-- DanceMatch Modal -->
+                <article class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h2 class="modal-title" id="paLabel">DanceMatch</h2>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Background</h3>
+                                <p>
+                                    The current version of DanceMatch is the MVP for a dance partner matching application.
+                                    Built with Python and Django on the back end, and Vanilla JavaScript, HTML5, and CSS3
+                                    (such as it is) on the front end. I was definitely focused on learning Django and Javascript
+                                    in this project.
+                                </p>
+                                <p>
+                                    I got the idea for this project from when I took an online HCI class from Stanford.
+                                    I did some need-finding interviews with people from the local dance community early in
+                                    the class, and found that many dancers wanted to practice during the week but had
+                                    no one to practice with. They would take weekly classes or private lessons, and
+                                    felt like they weren't progressing as well as they would with additional reinforcement
+                                    between lessons. The hard part was finding someone to practice with, especially in
+                                    their area, as many dancers drive a fair distance to dance in Portland.
+                                </p>
+                                <h3>Status</h3>
+                                <p>
+                                    The current version of the app gives you a way to specify which dances you do and
+                                    what you're working on for each, so that others may find you based on shared goals.
+                                    It also lets you choose locations you are willing to travel to, so that you'll know
+                                    right away if meeting with someone would be feasible for both of you. You're able
+                                    to search for others based on dance and role, with an optional goal if you're specifically
+                                    looking for a competition or routine partner.
+                                </p>
+                                <p>
+                                    The next steps for this project would be cleaning up the current funtionality: be able to view others'
+                                    profiles, and automatically filter search results based on overlapping preferred
+                                    locations. I'd also like to filter out the "Inactive" results, so people can leave
+                                    their information up but not have it show up in searches if they're not working on
+                                    it at the moment.
+                                </p>
+                                <p>
+                                    Most of the app is a SPA, but I'd like to get the Image Upload and New Dance forms
+                                    combined as well; they are currently separate pages, so all of the data has to load again
+                                    once you submit. I'd also like to let people log out.
+                                </p>
+                                <p>
+                                    In the future, I'd like to implement additional functionality: a simple messaging
+                                    system to mask email addresses, and helping people find buddies to attend dances through
+                                    a Preferred Venue model. I've heard from a number of people that it can be daunting
+                                    going somewhere and not knowing anyone, and some dancers want someone (like a gym buddy) to
+                                    keep them from backing out at the last minute.
+                                </p>
+                                <h3>Snippets</h3>
+                                <h4>Waiting to Load</h4>
+                                <p>
+                                    I wrapped the JavaScript in an <code>init</code> function so it would wait until the DOM had
+                                    finished loading, but since most of the site is drawn based on what comes in from the database,
+                                    I ended up with a race condition. <code>setTimeout</code> kept my selects
+                                    from drawing before they had the data to fill in their options.
+                                </p>
+                                <script src="https://gist.github.com/kapari/ebc8ba7caffae6b9caa8.js"></script>
+                                <h4>Dynamically Drawing Dropdowns</h4>
+                                <p>
+                                    I had a lot of many-to-many models to fill in my Dance Preferences: Dance, Dance Role,
+                                    Skill Level, Goal, and Activity (if you're working on this dance right now or not). In this
+                                    example, I'm drawing the selects in a form for the user to edit a particular Dance
+                                    Preference. To fill in each option, I saved the model data in a <code>DM</code> namespace
+                                    and passed each one separately into the <code>drawDropdown</code> function. To further
+                                    abstract things, I also saved a list of the models I wanted to call in <code>
+                                    DM.model_list</code>, so I loop through each of those in <code>drawPrefEdit</code>.
+                                </p>
+                                <script src="https://gist.github.com/kapari/10cbe336829ae4183f03.js"></script>
+                                <p>
+                                    For each item, I create an option and fill it with the <code>name</code> of the item,
+                                    and then set the <code>value</code> to be the item's <code>id</code>, for later retrieval. I've passed in the current value to the <code>drawDropdown</code>
+                                    so it shows up already selected. I then add the item to the parent <code>select</code> that
+                                    has been passed in.
+                                </p>
+                                <h4>Sorting and Filtering</h4>
+                                <p>
+                                    I wanted to use the built-in <code>.sort()</code> function in JavaScript, but it
+                                    didn't allow any parameters to be passed in. I found the idea
+                                    online and was unreasonably excited about it: call a function <strong>with</strong> parameters
+                                    that returns a function <strong>without</strong> parameters for the <code>
+                                    .sort()</code> to deal with.
+                                </p>
+                                <script src="https://gist.github.com/kapari/ff95a2134db05fa257ef.js"></script>
+                                <p>
+                                    The two things I was sorting by were the person's Name and their Skill Level. Name
+                                    sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
+                                    id</code>. <code>is_ascending</code> is based on a CSS class that is added and removed
+                                    when the column header is clicked.
+                                </p>
+                                <p>
+                                    When all the data has been sorted and filtered, the results table is redrawn.
+                                </p>
+                                <h4>AJAX Create &amp; Delete</h4>
+                                <p>
+                                    An event listener calls <code>onSuburbUpdate</code> whenever a Suburb checkbox is
+                                    checked or unchecked, and it sends a JSON update to the view <code>update_suburb</code>.
+                                    This allows the user to quickly add or remove a Suburb from
+                                    their list without having to reload the page.
+                                </p>
+                                <script src="https://gist.github.com/kapari/1c8cff74b2c7faa4c2b3.js"></script>
+                                <p>
+                                    <code>onSuburbUpdate</code> toggles the class "checked" in the CSS class list, in
+                                    response to the user input. Then it builds a JSON update to send to <code>update_suburb</code>.
+                                    If the Suburb is checked, the <code>action</code> will be "SAVE" and it will create a
+                                    new instance of the PreferredSuburb many-to-many model. If unchecked, the <code>action</code>
+                                    will be "DELETE" and will remove the existing instance.
+                                </p>
+                                <p>
+                                    <code>update_suburb</code> gets the User from the <code>user_id</code>, the Dancer from the User (a one-to-one
+                                    relationship), and the Suburb from the <code>sub_id</code>, using <code>.filter()</code>
+                                    so as to not throw a 404 error if the PreferredSuburb isn't there.
+                                </p>
+                                <h4>Deployment</h4>
+                                <p>
+                                    The app is currently deployed on a AWS Ubuntu server running Apache. I learned more about SSH
+                                    keys and Linux commands, like how to change permissions, check the <code>error.log</code> file in VI in the
+                                    terminal, and create aliasing for commands in <code>.bash_profile</code>. There was a fair amount of
+                                    troubleshooting to set the paths in the <code>.conf</code> file to <code>wsgi.py</code>.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </article>
-            </div>
-            <div class="col-sm-4">
-                <article class="project">
-                    <div class="thumbnail"><a href="http://patternagents.github.io"><img src="images/proj-pa.jpg"
-                                                                                         alt="PatternAgents"></a>
+                <!-- End DM Modal -->
 
-                        <div class="caption">
-                            <h3>PatternAgents</h3>
-
-                            <p>Worked with a small team to build the front end of this Jekyll-based blog, news, and
-                                e-commerce site.</p>
-
-                            <p>Skills: HTML, CSS, Wireframes, Responsive Design, Project Planning, Communication</p>
-
-                            <a class="hide btn btn-primary" data-toggle="modal" data-target="#paModel">Project Details</a>
-                            <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
-
+                <!-- Pattern Agents Modal -->
+                <article class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title" id="paLabel">PatternAgents</h3>
+                            </div>
+                            <div class="modal-body">
+                                Content goes here.
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </article>
-            </div>
-            <div class="col-sm-4">
-                <article class="project">
-                    <div class="thumbnail"><a href="http://www.carrutherslandscape.com"><img src="images/proj-cland.jpg"
-                                                                                             alt="Carruthers Landscape"></a>
+                <!-- End PA Modal -->
 
-                        <div class="caption"><h3>Carruthers Landscape</h3>
-
-                            <p>A one-page responsive site for a small business. Built with Zurb Foundation 4.</p>
-
-                            <p>Skills: Foundation, HTML, CSS, Wireframes, Project Planning, Photoshop, Communication,
-                                Customer Service</p>
-
-                            <a class="hide btn btn-primary" data-toggle="modal" data-target="#clModel">Project Details</a>
-                            <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
+                <!-- Carruthers Landscape Modal -->
+                <article class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
+                            </div>
+                            <div class="modal-body">
+                                Content goes here.
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </article>
-            </div>
-        </div>
-    </section>
-    <section id="modals">
+                <!-- End CL Modal -->
 
-        <!-- DanceMatch Modal -->
-        <article class="modal fade" id="dmModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h2 class="modal-title" id="paLabel">DanceMatch</h2>
-                    </div>
-                    <div class="modal-body">
-                        <h3>Background</h3>
-                        <p>
-                            The current version of DanceMatch is the MVP for a dance partner matching application.
-                            Built with Python and Django on the back end, and Vanilla JavaScript, HTML5, and CSS3
-                            (such as it is) on the front end. I was definitely focused on learning Django and Javascript
-                            in this project.
-                        </p>
-                        <p>
-                            I got the idea for this project from when I took an online HCI class from Stanford.
-                            I did some need-finding interviews with people from the local dance community early in
-                            the class, and found that many dancers wanted to practice during the week but had
-                            no one to practice with. They would take weekly classes or private lessons, and
-                            felt like they weren't progressing as well as they would with additional reinforcement
-                            between lessons. The hard part was finding someone to practice with, especially in
-                            their area, as many dancers drive a fair distance to dance in Portland.
-                        </p>
-                        <h3>Status</h3>
-                        <p>
-                            The current version of the app gives you a way to specify which dances you do and
-                            what you're working on for each, so that others may find you based on shared goals.
-                            It also lets you choose locations you are willing to travel to, so that you'll know
-                            right away if meeting with someone would be feasible for both of you. You're able
-                            to search for others based on dance and role, with an optional goal if you're specifically
-                            looking for a competition or routine partner.
-                        </p>
-                        <p>
-                            The next steps for this project would be cleaning up the current funtionality: be able to view others'
-                            profiles, and automatically filter search results based on overlapping preferred
-                            locations. I'd also like to filter out the "Inactive" results, so people can leave
-                            their information up but not have it show up in searches if they're not working on
-                            it at the moment.
-                        </p>
-                        <p>
-                            Most of the app is a SPA, but I'd like to get the Image Upload and New Dance forms
-                            combined as well; they are currently separate pages, so all of the data has to load again
-                            once you submit. I'd also like to let people log out.
-                        </p>
-                        <p>
-                            In the future, I'd like to implement additional functionality: a simple messaging
-                            system to mask email addresses, and helping people find buddies to attend dances through
-                            a Preferred Venue model. I've heard from a number of people that it can be daunting
-                            going somewhere and not knowing anyone, and some dancers want someone (like a gym buddy) to
-                            keep them from backing out at the last minute.
-                        </p>
-                        <h3>Snippets</h3>
-                        <h4>Waiting to Load</h4>
-                        <p>
-                            I wrapped the JavaScript in an <code>init</code> function so it would wait until the DOM had
-                            finished loading, but since most of the site is drawn based on what comes in from the database,
-                            I ended up with a race condition. <code>setTimeout</code> kept my selects
-                            from drawing before they had the data to fill in their options.
-                        </p>
-                        <script src="https://gist.github.com/kapari/ebc8ba7caffae6b9caa8.js"></script>
-                        <h4>Dynamically Drawing Dropdowns</h4>
-                        <p>
-                            I had a lot of many-to-many models to fill in my Dance Preferences: Dance, Dance Role,
-                            Skill Level, Goal, and Activity (if you're working on this dance right now or not). In this
-                            example, I'm drawing the selects in a form for the user to edit a particular Dance
-                            Preference. To fill in each option, I saved the model data in a <code>DM</code> namespace
-                            and passed each one separately into the <code>drawDropdown</code> function. To further
-                            abstract things, I also saved a list of the models I wanted to call in <code>
-                            DM.model_list</code>, so I loop through each of those in <code>drawPrefEdit</code>.
-                        </p>
-                        <script src="https://gist.github.com/kapari/10cbe336829ae4183f03.js"></script>
-                        <p>
-                            For each item, I create an option and fill it with the <code>name</code> of the item,
-                            and then set the <code>value</code> to be the item's <code>id</code>, for later retrieval. I've passed in the current value to the <code>drawDropdown</code>
-                            so it shows up already selected. I then add the item to the parent <code>select</code> that
-                            has been passed in.
-                        </p>
-                        <h4>Sorting and Filtering</h4>
-                        <p>
-                            I wanted to use the built-in <code>.sort()</code> function in JavaScript, but it
-                            didn't allow any parameters to be passed in. I found the idea
-                            online and was unreasonably excited about it: call a function <strong>with</strong> parameters
-                            that returns a function <strong>without</strong> parameters for the <code>
-                            .sort()</code> to deal with.
-                        </p>
-                        <script src="https://gist.github.com/kapari/ff95a2134db05fa257ef.js"></script>
-                        <p>
-                            The two things I was sorting by were the person's Name and their Skill Level. Name
-                            sorts fine alphabetically, but I had to specify to sort by the the Skill Level's <code>
-                            id</code>. <code>is_ascending</code> is based on a CSS class that is added and removed
-                            when the column header is clicked.
-                        </p>
-                        <p>
-                            When all the data has been sorted and filtered, the results table is redrawn.
-                        </p>
-                        <h4>AJAX Create &amp; Delete</h4>
-                        <p>
-                            An event listener calls <code>onSuburbUpdate</code> whenever a Suburb checkbox is
-                            checked or unchecked, and it sends a JSON update to the view <code>update_suburb</code>.
-                            This allows the user to quickly add or remove a Suburb from
-                            their list without having to reload the page.
-                        </p>
-                        <script src="https://gist.github.com/kapari/1c8cff74b2c7faa4c2b3.js"></script>
-                        <p>
-                            <code>onSuburbUpdate</code> toggles the class "checked" in the CSS class list, in
-                            response to the user input. Then it builds a JSON update to send to <code>update_suburb</code>.
-                            If the Suburb is checked, the <code>action</code> will be "SAVE" and it will create a
-                            new instance of the PreferredSuburb many-to-many model. If unchecked, the <code>action</code>
-                            will be "DELETE" and will remove the existing instance.
-                        </p>
-                        <p>
-                            <code>update_suburb</code> gets the User from the <code>user_id</code>, the Dancer from the User (a one-to-one
-                            relationship), and the Suburb from the <code>sub_id</code>, using <code>.filter()</code>
-                            so as to not throw a 404 error if the PreferredSuburb isn't there.
-                        </p>
-                        <h4>Deployment</h4>
-                        <p>
-                            The app is currently deployed on a AWS Ubuntu server running Apache. I learned more about SSH
-                            keys and Linux commands, like how to change permissions, check the <code>error.log</code> file in VI in the
-                            terminal, and create aliasing for commands in <code>.bash_profile</code>. There was a fair amount of
-                            troubleshooting to set the paths in the <code>.conf</code> file to <code>wsgi.py</code>.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-default" href="http://dancematch.arielkaplan.com">Visit Site</a>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </article>
-        <!-- End DM Modal -->
-
-        <!-- Pattern Agents Modal -->
-        <article class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title" id="paLabel">PatternAgents</h3>
-                    </div>
-                    <div class="modal-body">
-                        Content goes here.
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </article>
-        <!-- End PA Modal -->
-
-        <!-- Carruthers Landscape Modal -->
-        <article class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
-                    </div>
-                    <div class="modal-body">
-                        Content goes here.
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </article>
-        <!-- End CL Modal -->
-
-    </section>
-    <section id="education" class="row"><h2>Education</h2>
-        <ul>
-            <li>PDX Code Guild, Software Engineering 12-week intensive program, Portland OR</li>
-            <li>Online Courses:
+            </section>
+            <section id="education" class="row">
+                <h1>Education</h1>
                 <ul>
-                    <li>Python (MIT and Rice)</li>
-                    <li>Human-Computer Interaction (Stanford)</li>
-                    <li>Behavioral Economics (Duke)</li>
-                    <li>Treehouse</li>
+                    <li>PDX Code Guild, Software Engineering 12-week intensive program, Portland OR</li>
+                    <li>Online Courses:
+                        <ul>
+                            <li>Python (MIT and Rice)</li>
+                            <li>Human-Computer Interaction (Stanford)</li>
+                            <li>Behavioral Economics (Duke)</li>
+                            <li>Treehouse</li>
+                        </ul>
+                    </li>
+                    <li>B.A. Lewis & Clark College, magna cum laude and departmental honors, Portland OR. Art major, Japanese
+                        language minor
+                    </li>
+                    <li>Graduate with honors of Firestone High School, Akron OH</li>
                 </ul>
-            </li>
-            <li>B.A. Lewis & Clark College, magna cum laude and departmental honors, Portland OR. Art major, Japanese
-                language minor
-            </li>
-            <li>Graduate with honors of Firestone High School, Akron OH</li>
-        </ul>
-    </section>
-    <section id="community" class="row"><h2>Community</h2>
+            </section>
+            <section id="community" class="row">
+                <h1>Community</h1>
 
-        <div class="col-md-4">
-            <h3>Meetups</h3>
-            <ul>
-                <li>Women Who Code: JavaScript Night</li>
-                <li>Monday Python</li>
-                <li>Tech4Good</li>
-                <li>CHIFOO</li>
-                <li>PDX-UX</li>
-                <li>Code Scouts</li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <h3>Hackathons</h3>
-            <ul>
-                <li>We Code Hackathon by Nike & Puppet Labs: 2nd Place "Balancing Act"</li>
-                <li>Tech4Good: Customized a WordPress site for a battered womens' shelter</li>
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <h3>Conventions</h3>
-            <ul>
-                <li>Devsigner</li>
-                <li>Write the Docs</li>
-                <li>BarCamp</li>
-                <li>OSCON</li>
-            </ul>
-        </div>
-    </section>
-    <section id="other" class="row"><h2>Other Interests</h2>
-
-        <div class="col-sm-6 col-md-6">
-            <article class="interest">
-                <div class="thumbnail">
-                    <a href="http://dance.arielkaplan.com"><img src="images/dance-bw.jpg" alt="Dancing"></a>
-
-                    <div class="caption">
-                        <h3>Partner Dancing</h3>
-
-                        <p>I've been teaching group classes and private lessons for nearly four years, currently out of
-                            <a href="http://www.portlandballroomdancing.com">Uptown Ballroom</a> in Tigard. Prior to
-                            Uptown, I co-founded and hosted a twice-monthly social dance for about two years, and taught group
-                            classes at various places around Portland.</p>
-
-                        <p>My favorite dances are Nightclub Two-Step, West Coast Swing, Cross-Step Waltz, and Hustle.
-                            I also do a smattering of other dances.</p>
-
-                        <a class="btn btn-default" href="http://dance.arielkaplan.com">Visit Site</a>
-                    </div>
+                <div class="col-md-4">
+                    <h2>Meetups</h2>
+                    <ul>
+                        <li>Women Who Code: JavaScript Night</li>
+                        <li>Monday Python</li>
+                        <li>Tech4Good</li>
+                        <li>CHIFOO</li>
+                        <li>PDX-UX</li>
+                        <li>Code Scouts</li>
+                    </ul>
                 </div>
-            </article>
-        </div>
-        <div class="col-sm-6 col-md-6">
-            <article class="interest">
-                <div class="thumbnail"><a href="http://www.arielkaplan.com"><img src="images/art-gabby.jpg"
-                                                                                  alt="Painting"></a>
-
-                    <div class="caption">
-                        <h3>Photography & Painting</h3>
-
-                        <p>Although I don't do it too often these days, my first love was drawing. I spent some time
-                            as a pet portrait artist, enjoying the delicacy and precision of portraiture combined
-                            with cute animals. 'Cause cute animals.</p>
-
-                        <p>I like to take an unreasonable number of photos with my Nikon D3000 whenever I go
-                            somewhere pretty.</p>
-
-                        <a class="btn btn-default" href="http://www.arielkaplan.com">Visit Site</a>
-                    </div>
+                <div class="col-md-4">
+                    <h2>Hackathons</h2>
+                    <ul>
+                        <li>We Code Hackathon by Nike & Puppet Labs: 2nd Place "Balancing Act"</li>
+                        <li>Tech4Good: Customized a WordPress site for a battered womens' shelter</li>
+                    </ul>
                 </div>
-            </article>
-        </div>
-    </section>
-    <footer class="row">
-        <div class="col-md-12">
-            <p>Still here? <a href="mailto:ariel@arielkaplan.com">Email me!</a></p>
-        </div>
-    </footer>
+                <div class="col-md-4">
+                    <h2>Conventions</h2>
+                    <ul>
+                        <li>Devsigner</li>
+                        <li>Write the Docs</li>
+                        <li>BarCamp</li>
+                        <li>OSCON</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="other" class="row"><h1>Other Interests</h1>
+
+                <div class="col-sm-6 col-md-6">
+                    <article class="interest">
+                        <div class="thumbnail">
+                            <a href="http://dance.arielkaplan.com"><img src="images/dance-bw.jpg" alt="Dancing"></a>
+
+                            <div class="caption">
+                                <h2>Partner Dancing</h2>
+
+                                <p>I've been teaching group classes and private lessons for nearly four years, currently out of
+                                    <a href="http://www.portlandballroomdancing.com">Uptown Ballroom</a> in Tigard. Prior to
+                                    Uptown, I co-founded and hosted a twice-monthly social dance for about two years, and taught group
+                                    classes at various places around Portland.</p>
+
+                                <p>My favorite dances are Nightclub Two-Step, West Coast Swing, Cross-Step Waltz, and Hustle.
+                                    I also do a smattering of other dances.</p>
+
+                                <a class="btn btn-default" href="http://dance.arielkaplan.com">Visit Site</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <article class="interest">
+                        <div class="thumbnail"><a href="http://www.arielkaplan.com"><img src="images/art-gabby.jpg"
+                                                                                         alt="Painting"></a>
+
+                            <div class="caption">
+                                <h2>Photography & Painting</h2>
+
+                                <p>Although I don't do it too often these days, my first love was drawing. I spent some time
+                                    as a pet portrait artist, enjoying the delicacy and precision of portraiture combined
+                                    with cute animals. 'Cause cute animals.</p>
+
+                                <p>I like to take an unreasonable number of photos with my Nikon D3000 whenever I go
+                                    somewhere pretty.</p>
+
+                                <a class="btn btn-default" href="http://www.arielkaplan.com">Visit Site</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
+        <!-- End right column -->
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

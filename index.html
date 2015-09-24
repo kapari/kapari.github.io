@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <!-- Left column -->
-        <div class="col-sm-3">
+        <div class="col-sm-3 left">
             <header class="row">
                 <div class="col-lg-12">
                     <h1>
                         Ariel Kaplan
                     </h1>
+
+                    <h2>Front-End Developer</h2>
 
                     <p><a href="mailto:ariel@arielkaplan.com">ariel@arielkaplan.com</a></p>
 
@@ -26,7 +28,7 @@
 
                     <p>I value: Respect, Honesty, Compassion, Curiosity, Responsibility, Self-Awareness</p>
 
-                    <p>I'm working on: Node.js & Express, Bootstrap</p>
+                    <p>I'm working on: Node.js &amp; Express, Bootstrap</p>
 
                     <p>I'm curious about: AngularJS, CSS3 Animations, JQuery, Automated Testing, MeteorJS, MongoDB</p>
                 </div>
@@ -35,7 +37,7 @@
         <!-- End left column -->
 
         <!-- Right column -->
-        <div class="col-sm-9">
+        <div class="col-sm-9 col-sm-offset-3 right">
             <section id="projects">
                 <div class="row">
                     <div class="col-lg-12">
@@ -222,6 +224,25 @@
                                 </div>
                             </div>
                         </article>
+                        <!-- Pattern Agents Modal -->
+                        <article class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title" id="paLabel">PatternAgents</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        Content goes here.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- End PA Modal -->
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <article class="project">
@@ -240,53 +261,27 @@
                                     <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
                                 </div>
                         </article>
+                        <!-- Carruthers Landscape Modal -->
+                        <article class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        Content goes here.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- End CL Modal -->
                     </div>
                 </div>
-            </section>
-            <section id="modals">
-
-
-
-                <!-- Pattern Agents Modal -->
-                <article class="modal fade" id="paModel" tabindex="-1" role="dialog" aria-labelledby="paLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h3 class="modal-title" id="paLabel">PatternAgents</h3>
-                            </div>
-                            <div class="modal-body">
-                                Content goes here.
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-default" href="http://patternagents.github.io">Visit Site</a>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- End PA Modal -->
-
-                <!-- Carruthers Landscape Modal -->
-                <article class="modal fade" id="clModel" tabindex="-1" role="dialog" aria-labelledby="clLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h3 class="modal-title" id="clLabel">Carruthers Landscape</h3>
-                            </div>
-                            <div class="modal-body">
-                                Content goes here.
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!-- End CL Modal -->
-
             </section>
             <section id="education" class="row">
                 <h1>Education</h1>
@@ -381,14 +376,14 @@
                     </article>
                 </div>
             </section>
+            <footer class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2015 Ariel Kaplan</p>
+                </div>
+            </footer>
         </div>
         <!-- End right column -->
     </div>
-    <footer class="row">
-        <div class="col-md-12">
-            <p>&copy; 2015 Ariel Kaplan</p>
-        </div>
-    </footer>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>

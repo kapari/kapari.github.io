@@ -11,7 +11,7 @@
     "@brand-info": "#D4C4E1",
     "@brand-warning": "#ecca99",
     "@brand-danger": "#d46d6a",
-    "@body-bg": "#fbf7fe",
+    "@body-bg": "#fcfcfc",
     "@text-color": "@gray-dark",
     "@link-color": "@brand-primary",
     "@link-hover-color": "darken(@link-color, 15%)",

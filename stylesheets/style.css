@@ -1,7 +1,7 @@
 /*Pale lavendar #fbf7fe*/
 /*Lilac #D4C4E1*/
 /*mid purple #947B9B*/
-/*brand primary B7A9C2*/
+/*brand primary b7a9c2*/
 /*eggplant #503651*/
 /*dark purple #351A2D*/
 /*cobalt #5C63BB*/
@@ -13,8 +13,12 @@ body {
     background: url(../images/symphony.png) repeat fixed #fcfcfc;
 }
 
+a:hover {
+    color: #503651;
+}
+
 .left {
-    background-color: #f1eff2;
+    background: url(../images/subtle_surface.png) repeat fixed #f1eff2;
     margin: -3.5em -3.5em 1.5em -3.5em;
     padding: 2.5em 3.5em 2em 4.75em;
     box-shadow: 0 2px 10px 2px #ddd;
@@ -22,10 +26,6 @@ body {
 
 article {
     display: inline-block;
-}
-
-.skill {
-    display: flex;
 }
 
 .skill h3 {

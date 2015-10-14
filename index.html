@@ -294,7 +294,7 @@
 
                                     <p>Skills: Sass, Grunt, CSS3, HTML5, Responsive Design</p>
 
-                                    <a class="hide btn btn-primary" data-toggle="modal" data-target="#hubModel">Project Details</a>
+                                    <a class="btn btn-primary" data-toggle="modal" data-target="#hubModel">Project Details</a>
                                     <a class="btn btn-default" href="http://www.arielkaplan.com">Visit Site</a>
                                 </div>
                         </article>
@@ -308,6 +308,101 @@
                                     </div>
                                     <div class="modal-body">
                                         <h3>Background</h3>
+                                        <p>
+                                            I really wanted to learn how to use Grunt and to refresh my languishing Sass knowledge,
+                                            and I needed to update my personal domain anyway.
+                                            Thus, this tiny page was born.
+                                        </p>
+                                        <h4>Grunt</h4>
+                                        <p>
+                                            I went through a few tutorials to get a feel for things, and ended up using these packages:
+                                        </p>
+                                        <ul>
+                                            <li>Watch: Monitors changes in my directory and takes actions as set in GruntFile.js</li>
+                                            <li>Uglify: I ended up not writing any JavaScript for this bitty page, but if I had, Uglify would
+                                                minify it</li>
+                                            <li>Sass: Compiles the .scss files into .css</li>
+                                            <li>Matchdep: Dynamically loads other packages in GruntFile.js, so I don't have to add them all manually</li>
+                                        </ul>
+                                        <p>
+                                            I set up the default task to run Sass:dev and Watch, and I set a "deploy" task to run Sass:deploy and Uglify,
+                                            which minified files into my deployment folder.
+                                        </p>
+                                        <p>Some other packages I'd like to try:</p>
+                                        <ul>
+                                            <li>Imagemin: Compresses image files</li>
+                                            <li>LiveReload: Automatically refreshes the browser on changes; requires a browser extension</li>
+                                            <li>UnCSS: Removes unused CSS from the project; seems especially useful when using Bootstrap or another framework</li>
+                                            <li>CSSmin and HTMLmin: Minifies CSS and HTML</li>
+                                            <li>Compass: How is this different from the Sass package, other than requiring a config.rb file? I am unclear.</li>
+                                        </ul>
+                                        <p>A few helpful Grunt resources:</p>
+                                        <ul>
+                                            <li><a href="https://24ways.org/2013/grunt-is-not-weird-and-hard/">Grunt is not Weird and Hard</a></li>
+                                            <li><a href="http://moduscreate.com/get-up-and-running-with-grunt-js/">Get up and running with Grunt</a></li>
+                                            <li><a href="http://gruntjs.com/sample-gruntfile">Grunt Documentation</a></li>
+                                        </ul>
+                                        <h4>Sass</h4>
+                                        <p>
+                                            I had used Sass over a year ago, so while rusty, I was somewhat familiar. I kept the
+                                            <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">Sass Documentation</a> handy and referenced
+                                            my previous project, which included partials, variables, nesting, import, and built-in
+                                            functions like <code>darken</code>.
+                                        </p>
+                                        <p>
+                                            In future projects, I plan on exploring <code>@extend</code> and <code>@mixin</code>. I'm also very interested
+                                            in Control Directives and SassScript.
+                                        </p>
+                                        <h3>Snippets</h3>
+                                        <h4>Imports &amp; Partials</h4>
+                                        <p>
+                                            To keep my files a bit tidier, I used the <code>_filename.scss</code> scheme to keep those files from being converted
+                                            to separate CSS files. Instead, I imported them into my main <code>styles.scss</code> file, so that they would be converted together.
+                                        </p>
+                                        <script src="https://gist.github.com/kapari/b27fc61decf6916649f8.js"></script>
+                                        <p>
+                                            I first imported the <code>normalize.css</code> reset that had been coverted to .scss by
+                                            <a href="https://github.com/kristerkari/normalize.scss">kristerkari</a>, and made a <code>_global.scss</code>
+                                            file to hold all my variables and general styling.
+                                        </p>
+                                        <h4>Box Hover Styles</h4>
+                                        <p>
+                                            I wanted some visual interest on this simple page, so on hover, the boxes have some subtle changes.
+                                        </p>
+                                        <script src="https://gist.github.com/kapari/159b6e1f5c07c62a5105.js"></script>
+                                        <p>
+                                            I wanted to make things very easy to click, so each image is a link. On hover, a few things happen:
+                                        </p>
+                                        <ul>
+                                            <li>The subtley transparent image becomes fully opaque</li>
+                                            <li>The box translates up slightly</li>
+                                            <li>The shadow grows and darkens so that the background is visually stationary as the box appears to lift</li>
+                                        </ul>
+                                        <p>
+                                            I also like the trick of a negative <code>box-shadow</code> size to keep the shadow centered underneath.
+                                        </p>
+                                        <h4>Responsive Design</h4>
+                                        <p>
+                                            I wanted to try out <code>flexbox</code>, so I used that in combination with a media query to achieve a readable,
+                                            responsive layout.
+                                        </p>
+                                        <p>
+                                            On smaller screens, the boxes stack vertically and stretch to fill the screen with <code>flex-flow: column</code>
+                                            and <code>align-items: stretch</code>. On large screens, they group into a square by setting the <code>min-width
+                                            </code> and <code>flex-flow: row wrap</code>.
+                                        </p>
+                                        <script src="https://gist.github.com/kapari/11995b10cab8f245f717.js"></script>
+                                        <p>
+                                            The <code>background-size: cover</code> was a super easy fix to allow for my boxes to change shape and still keep full
+                                            coverage with the image. Unfortunately
+                                            it didn't work properly when I refactored that style away from its background declaration (separate, as each box
+                                            has a different image), so my code isn't quite as DRY as I might like.
+                                        </p>
+                                        <p>
+                                            I added a gradient as a second background on top of the image, so that the text would be more readable.
+                                            I originally was looking at a pseudo-element with a transparent background to tint the image, but it tinted the text
+                                            as well. It would have made setting a hover state tint easier, but alas.
+                                        </p>
                                     </div>
                                     <div class="modal-footer">
                                         <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>

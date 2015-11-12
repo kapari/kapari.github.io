@@ -416,7 +416,7 @@
 
                     <div class="col-md-6 col-lg-4">
                         <article class="project">
-                            <div class="thumbnail"><a href="http://www.twitter.com/on_this_day_bot"><img src="images/proj-cland.jpg"
+                            <div class="thumbnail"><a href="http://www.twitter.com/on_this_day_bot"><img src="images/twitterbot.png"
                                                                                                      alt="Twitterbot: On This Day"></a>
 
                                 <div class="caption">
@@ -427,7 +427,7 @@
 
                                     <p>Skills: Python, Terminal, Wikipedia API, Twitter API.</p>
 
-                                    <a class="hide btn btn-primary" data-toggle="modal" data-target="#clModel">Project Details</a>
+                                    <a class="btn btn-primary" data-toggle="modal" data-target="#tbModel">Project Details</a>
                                     <a class="btn btn-default" href="http://www.twitter.com/on_this_day_bot">Visit Site</a>
                                 </div>
                         </article>
@@ -440,7 +440,34 @@
                                         <h3 class="modal-title" id="tbLabel">Twitterbot: On This Day</h3>
                                     </div>
                                     <div class="modal-body">
-                                        Content goes here.
+                                        <h3>Background</h3>
+                                        <p>
+                                            I attended the local PyDX conference where there was a Build-a-Bot workshop, but
+                                            I ended up attending some concurrent presentations instead. Still interested, I forked
+                                            tpinecone's template from her <a href="https://tpinecone.gitbooks.io/build-a-bot-workshop/content/">tutorial</a>
+                                            and made my own bot tweeting Japanese Fairytales.
+                                        </p>
+                                        <p>
+                                            I was excited about my success but not feeling much ownership; I wanted to write the guts of the bot myself to do something a bit
+                                            different, so I decided to explore the Wikipedia API and its <a href="https://github.com/goldsmith/Wikipedia">Python wrapper</a>
+                                            to tweet random events that happened on this day in history.
+                                        </p>
+                                        <h3>Code</h3>
+                                        <p>
+                                            At first I was going to just grab Wikipedia's built-in <a href="https://en.wikipedia.org/wiki/Wikipedia:On_this_day/Today">On This Day</a> page, but it was not as well structured
+                                            as the full date page, and it felt a bit too simple. So, I imported the <code>datetime</code> module to dynamically grab
+                                            the full page for the current date.
+                                        </p>
+                                        <script src="https://gist.github.com/kapari/d8ec705516a488f80c57.js"></script>
+                                        <p>
+                                            The <code>get_event</code> function searches for the Wikipedia page specified by the <code>get_date</code> function.
+                                            It then takes only the "Events" section and splits each event into a list item and randomly chooses one of them. It
+                                            returns the full string if it's short enough to tweet; otherwise, it truncates the item.
+                                        </p>
+                                        <p>
+                                            The shell script is for the scheduled task on <a href="https://www.pythonanywhere.com">Python Anywhere</a>. Simply <code>cd</code>
+                                            into the twitterbot directory and run <code>bot.py</code>.
+                                        </p>
                                     </div>
                                     <div class="modal-footer">
                                         <a class="btn btn-default" href="http://www.carrutherslandscape.com">Visit Site</a>
@@ -449,6 +476,7 @@
                                 </div>
                             </div>
                         </article>
+                        <!-- End twitterbot modal -->
                     </div>
 
                 </div>
